@@ -22,9 +22,9 @@ function Login() {
     };
     console.log(userInfo);  
 
-    axios
-      .post("/api/user/login", userInfo)
-      .then((response) => {
+    
+    axios.post(`${process.env.REACT_APP_API_URL}/api/user/login`, userInfo)
+    .then((response) => {
         console.log(response.data);
         if (response.data) {
           toast.success("Login successful");
