@@ -10,9 +10,8 @@ function Typesend() {
     e.preventDefault();
     if (!message.trim()) return;
 
-    console.log('Message:', message);
     await sendMessages(message); // Send message to API
-    setMessage('');
+    setMessage(''); // Clear the input
   };
 
   return (
