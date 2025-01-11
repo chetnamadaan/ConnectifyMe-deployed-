@@ -5,10 +5,7 @@ function Message({ message }) {
   const itsMe = message.senderId === authUser.user._id;
 
   const chatName = itsMe ? "chat-end" : "chat-start";
-  const chatColor = itsMe
-    ? "bg-teal-500" 
-    : "bg-teal-900"; 
-  
+  const chatColor = itsMe ? "bg-teal-500" : "bg-teal-900";
   const textColor = itsMe ? "text-black" : "text-white";
 
   const createdAt = new Date(message.createdAt);

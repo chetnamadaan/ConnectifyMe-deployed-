@@ -6,12 +6,10 @@ import useGetSocketMessage from "../../context/useGetSocketMessage";
 
 function Messages() {
   const { loading, messages } = useGetMessage();
-  useGetSocketMessage(); 
+  useGetSocketMessage();
   console.log(messages);
 
   const lastMsgRef = useRef();
-  
-
   const safeMessages = Array.isArray(messages) ? messages : [];
 
   useEffect(() => {
@@ -25,10 +23,7 @@ function Messages() {
   }, [safeMessages]);
 
   return (
-    <div
-      className="flex-1 overflow-y-auto"
-      style={{ minHeight: "calc(92vh - 8vh)" }}
-    >
+    <div className="flex-1 overflow-y-auto" style={{ minHeight: "calc(92vh - 8vh)" }}>
       {loading ? (
         <Loading />
       ) : (
@@ -42,9 +37,7 @@ function Messages() {
 
       {!loading && safeMessages.length === 0 && (
         <div>
-          <p className="text-center mt-[20%]">
-            Say! Hi to start the conversation
-          </p>
+          <p className="text-center mt-[20%]">Say! Hi to start the conversation</p>
         </div>
       )}
     </div>

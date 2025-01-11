@@ -1,18 +1,18 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import { IoSend } from "react-icons/io5";
-import useSendMessage from "../../context/useSendMessage.js"; 
+import useSendMessage from "../../context/useSendMessage.js";
 
 function Typesend() {
-  const [message, setMessage] = useState(""); 
-  const { loading, sendMessages } = useSendMessage(); 
+  const [message, setMessage] = useState("");
+  const { loading, sendMessages } = useSendMessage();
 
   const handleSubmit = async (e) => {
-    console.log(e.target.value);
-
     e.preventDefault();
-    if (!message.trim()) return; 
+    if (!message.trim()) return;
+
+    console.log('Message:', message);
     await sendMessages(message);
-    setMessage("");
+    setMessage("");  // Reset the input field after sending the message
   };
 
   return (
@@ -25,7 +25,7 @@ function Typesend() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="border border-teal-500 rounded-xl outline-none mt-1 px-4 py-3 w-full bg-black text-white"
-            disabled={loading} 
+            disabled={loading}
           />
         </div>
         <button type="submit" disabled={loading}>
