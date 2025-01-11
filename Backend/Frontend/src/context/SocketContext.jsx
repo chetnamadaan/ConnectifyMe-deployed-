@@ -16,7 +16,7 @@ export const SocketProvider = ({ children }) => {
     useEffect(() => {
         if (authUser) {
 
-            const socketInstance = io("http://localhost:3000", {
+            const socketInstance = io("https://connectifyme-deployed-1.onrender.com", {
                 query: {
                     userId: authUser.user._id, 
                 },
