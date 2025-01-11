@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useConversation from '../zustand/useConversation.js';
-import axios from "axios";
+import axios from 'axios';
 
 const useSendMessage = () => {
   const [loading, setLoading] = useState(false);
@@ -10,19 +10,14 @@ const useSendMessage = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `api/message/send/${selectedConversation._id}`, { message }
+        `api/message/send/${selectedConversation._id}`,
+        { message }
       );
-
-      // Ensure messages is an array before spreading it
-      if (Array.isArray(messages)) {
-        setMessage([...messages, res.data]);  // Correct way to update the message array
-      } else {
-        setMessage([res.data]);  // If messages is not an array, we reset it to just the new message
-      }
-
+      // Append the new message to the existing messages array
+      setMessage((prevMessages) => [...prevMessages, res.data]);
       setLoading(false);
     } catch (error) {
-      console.log("Error in send messages:", error);
+      console.log('Error in send messages:', error);
       setLoading(false);
     }
   };

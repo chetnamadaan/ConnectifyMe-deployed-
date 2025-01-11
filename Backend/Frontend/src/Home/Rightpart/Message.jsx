@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 
 function Message({ message }) {
-  const authUser = JSON.parse(localStorage.getItem("ChatApp"));
+  const authUser = JSON.parse(localStorage.getItem('ChatApp'));
   const itsMe = message.senderId === authUser.user._id;
 
-  const chatName = itsMe ? "chat-end" : "chat-start";
-  const chatColor = itsMe ? "bg-teal-500" : "bg-teal-900";
-  const textColor = itsMe ? "text-black" : "text-white";
+  const chatName = itsMe ? 'chat-end' : 'chat-start';
+  const chatColor = itsMe ? 'bg-teal-500' : 'bg-teal-900';
+  const textColor = itsMe ? 'text-black' : 'text-white';
 
   const createdAt = new Date(message.createdAt);
   const formattedTime = createdAt.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
+    hour: '2-digit',
+    minute: '2-digit',
   });
 
   return (

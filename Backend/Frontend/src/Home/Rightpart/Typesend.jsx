@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { IoSend } from "react-icons/io5";
-import useSendMessage from "../../context/useSendMessage.js";
+import { IoSend } from 'react-icons/io5';
+import useSendMessage from '../../context/useSendMessage.js';
 
 function Typesend() {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
   const { loading, sendMessages } = useSendMessage();
 
   const handleSubmit = async (e) => {
@@ -11,8 +11,8 @@ function Typesend() {
     if (!message.trim()) return;
 
     console.log('Message:', message);
-    await sendMessages(message);
-    setMessage("");  // Reset the input field after sending the message
+    await sendMessages(message); // Send message to API
+    setMessage('');
   };
 
   return (

@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import Message from "./Message";
-import useGetMessage from "../../context/useGetMessage.js";
-import Loading from "../../components/Loading.jsx";
-import useGetSocketMessage from "../../context/useGetSocketMessage";
+import React, { useEffect, useRef } from 'react';
+import Message from './Message';
+import useGetMessage from '../../context/useGetMessage.js';
+import Loading from '../../components/Loading.jsx';
+import useGetSocketMessage from '../../context/useGetSocketMessage';
 
 function Messages() {
   const { loading, messages } = useGetMessage();
@@ -10,20 +10,21 @@ function Messages() {
   console.log(messages);
 
   const lastMsgRef = useRef();
+
   const safeMessages = Array.isArray(messages) ? messages : [];
 
   useEffect(() => {
     setTimeout(() => {
       if (lastMsgRef.current) {
         lastMsgRef.current.scrollIntoView({
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       }
     }, 100);
   }, [safeMessages]);
 
   return (
-    <div className="flex-1 overflow-y-auto" style={{ minHeight: "calc(92vh - 8vh)" }}>
+    <div className="flex-1 overflow-y-auto" style={{ minHeight: 'calc(92vh - 8vh)' }}>
       {loading ? (
         <Loading />
       ) : (
