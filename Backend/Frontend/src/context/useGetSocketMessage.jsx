@@ -6,19 +6,15 @@ const useGetSocketMessage = () => {
     const {socket} =useSocketContext();
   const {messages, setMessage} = useConversation(); 
 
-  useEffect(() => {
-  
+   useEffect(() => {
     socket.on("newMessage", (newMessage) => {
-        const notification = new Audio(sound)
-        notification.play();
-        setMessage((prevMessages) => [...prevMessages, newMessage]);
-      
+      const notification = new Audio(sound);
+      notification.play();
+      setMessage([...messages, newMessage]);
     });
-  
     return () => {
-      socket.off("newMessage"); 
+      socket.off("newMessage");
     };
-  }, [socket, setMessage]);
+  }, [socket, messages, setMessage]);
 };
-
 export default useGetSocketMessage;

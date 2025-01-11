@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import { IoSend } from 'react-icons/io5';
-import useSendMessage from '../../context/useSendMessage.js';
+import React, { useState } from 'react'; 
+import { IoSend } from "react-icons/io5";
+import useSendMessage from "../../context/useSendMessage.js"; 
 
 function Typesend() {
-  const [message, setMessage] = useState('');
-  const { loading, sendMessages } = useSendMessage();
+  const [message, setMessage] = useState(""); 
+  const { loading, sendMessages } = useSendMessage(); 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!message.trim()) return;
+    console.log(e.target.value);
 
-    await sendMessages(message); // Send message to API
-    setMessage(''); // Clear the input
+    e.preventDefault();
+    if (!message.trim()) return; 
+    await sendMessages(message);
+    setMessage("");
   };
 
   return (
@@ -24,7 +25,7 @@ function Typesend() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="border border-teal-500 rounded-xl outline-none mt-1 px-4 py-3 w-full bg-black text-white"
-            disabled={loading}
+            disabled={loading} 
           />
         </div>
         <button type="submit" disabled={loading}>
