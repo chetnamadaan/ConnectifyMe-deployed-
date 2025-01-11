@@ -26,9 +26,7 @@ try {
   console.log(error);
 }
 
-app.get('/', (req, res) => {
-  res.send('Welcome to the API!');
-});
+
 
 // Routes for user and message
 app.use('/api/user', UserRoute);
@@ -38,7 +36,7 @@ app.use('/api/message', messageRoute);
 if (process.env.NODE_ENV === 'production') {
   const dirPath = path.resolve();
 
-  // Serving the static files from 'Frontend/dist' directory
+  // Serve static files from 'Frontend/dist' directory
   app.use(express.static(path.join(dirPath, 'Frontend', 'dist')));
 
   // Fallback for all other routes to serve index.html
@@ -46,6 +44,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(dirPath, 'Frontend', 'dist', 'index.html'));
   });
 }
+
 
 // Start server
 server.listen(PORT, () => {
