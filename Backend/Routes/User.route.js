@@ -3,7 +3,6 @@ import { signup, login, logout, allUsers } from "../controller/user.controller.j
 import secureRoute from '../middleware/secureRoute.js';
 const router = express.Router();
 
-// Define routes for signup, login, and logout
 router.post("/signup", signup);
 router.post("/login", login);
 router.post("/logout", logout);

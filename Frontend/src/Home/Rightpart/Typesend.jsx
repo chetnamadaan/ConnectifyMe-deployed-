@@ -1,16 +1,16 @@
-import React, { useState } from 'react'; // Importing useState
+import React, { useState } from 'react'; 
 import { IoSend } from "react-icons/io5";
-import useSendMessage from "../../context/useSendMessage.js"; // Ensure this path is correct
+import useSendMessage from "../../context/useSendMessage.js"; 
 
 function Typesend() {
-  const [message, setMessage] = useState(""); // Correctly using useState
-  const { loading, sendMessages } = useSendMessage(); // Ensure useSendMessage returns these values
+  const [message, setMessage] = useState(""); 
+  const { loading, sendMessages } = useSendMessage(); 
 
   const handleSubmit = async (e) => {
     console.log(e.target.value);
 
     e.preventDefault();
-    if (!message.trim()) return; // Prevent sending empty messages
+    if (!message.trim()) return; 
     await sendMessages(message);
     setMessage("");
   };
@@ -25,7 +25,7 @@ function Typesend() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="border border-teal-500 rounded-xl outline-none mt-1 px-4 py-3 w-full bg-black text-white"
-            disabled={loading} // Disable input while loading
+            disabled={loading} 
           />
         </div>
         <button type="submit" disabled={loading}>

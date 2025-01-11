@@ -6,12 +6,12 @@ import useGetSocketMessage from "../../context/useGetSocketMessage";
 
 function Messages() {
   const { loading, messages } = useGetMessage();
-  useGetSocketMessage(); // listing incoming messages
+  useGetSocketMessage(); 
   console.log(messages);
 
   const lastMsgRef = useRef();
   
-  // Ensure that messages is always an array
+
   const safeMessages = Array.isArray(messages) ? messages : [];
 
   useEffect(() => {

@@ -14,7 +14,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
-// Define port from environment variables or default to 3001
+
 const PORT = process.env.PORT || 3001;
 const URI = process.env.MONGODB_URI;
 
@@ -26,7 +26,6 @@ try {
   console.log(error);
 }
 
-// Root route to prevent 404 errors for '/'
 app.get('/', (req, res) => {
   res.send('Welcome to the API!');
 });

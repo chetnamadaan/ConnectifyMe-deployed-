@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { CiMenuFries } from "react-icons/ci"; // Ensure this is imported
+import { CiMenuFries } from "react-icons/ci"; 
 import useConversation from "../../zustand/useConversation.js";
 import { useSocketContext } from "../../context/SocketContext";
 
@@ -7,19 +7,19 @@ function ChatUser() {
   const { selectedConversation, setSelectedConversation } = useConversation();
   const { onlineUsers } = useSocketContext();
 
-  // Function to get online status of a user
+
   const getOnlineUsersStatus = (userId) => {
     return onlineUsers.includes(userId) ? "Online" : "Offline";
   };
 
-  // Log changes to the selected conversation
+
   useEffect(() => {
     console.log("Selected Conversation updated:", selectedConversation);
   }, [selectedConversation]);
 
-  // Handle click to set the selected conversation
+
   const handleUserClick = () => {
-    setSelectedConversation({ fullname: "Chetna", _id: "uniqueUserId" }); // Example data
+    setSelectedConversation({ fullname: "Chetna", _id: "uniqueUserId" }); 
   };
   return (
     <div className="relative flex items-center h-[8%] justify-center gap-4 bg-gradient-to-b from-teal-700 to-green-700 ">

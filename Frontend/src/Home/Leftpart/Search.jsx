@@ -34,7 +34,7 @@ function Search() {
       <div className="px-6 py-4">
         <form onSubmit={handleSubmit}>
           <div className="flex items-center space-x-3">
-            {/* Search input */}
+
             <label className="border-[1px] border-teal-700 bg-teal-800 rounded-lg p-3 flex items-center gap-2 w-full md:w-[95%] lg:w-[95%]">
               <input
                 type="text"
@@ -44,7 +44,7 @@ function Search() {
                 onChange={(e) => setSearch(e.target.value)}
                 aria-label="Search for a user"
               />
-              {/* Clear button */}
+
               {search && (
                 <button
                   type="button"
@@ -57,7 +57,7 @@ function Search() {
               )}
             </label>
 
-            {/* Search button with icon */}
+
             <button
               type="submit"
               className="bg-teal-700 p-2 hover:bg-teal-600 rounded-full duration-300"

@@ -4,11 +4,10 @@ import useConversation from "../zustand/useConversation.js"
 import sound from "../assets/notification.mp3"
 const useGetSocketMessage = () => {
     const {socket} =useSocketContext();
-  const {messages, setMessage} = useConversation(); // Initialize as an array
+  const {messages, setMessage} = useConversation(); 
 
   useEffect(() => {
   
-    // Listen for new messages
     socket.on("newMessage", (newMessage) => {
         const notification = new Audio(sound)
         notification.play();
@@ -17,7 +16,7 @@ const useGetSocketMessage = () => {
     });
   
     return () => {
-      socket.off("newMessage"); // Cleanup listener
+      socket.off("newMessage"); 
     };
   }, [socket, setMessage]);
 };

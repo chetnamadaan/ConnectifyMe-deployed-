@@ -20,7 +20,7 @@ function Login() {
       email: data.email,
       password: data.password,
     };
-    console.log(userInfo);  // Log the submitted user data
+    console.log(userInfo);  
 
     axios
       .post("/api/user/login", userInfo)
@@ -49,7 +49,6 @@ function Login() {
           </h1>
           <h2 className='text-center text-xl text-white font-semibold mb-4'>Login</h2>
 
-          {/* Email Field */}
           <label className="input input-bordered flex items-center gap-2 mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +64,6 @@ function Login() {
           </label>
           {errors.email && <span className='text-red-500 text-sm font-semibold'>This field is required</span>}
 
-          {/* Password Field */}
           <label className="input input-bordered flex items-center gap-2 mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +79,6 @@ function Login() {
           </label>
           {errors.password && <span className='text-red-500 text-sm font-semibold'>This field is required</span>}
 
-          {/* Login Button */}
           <div className='flex justify-between items-center'>
             <p className='text-white'>
               New User?

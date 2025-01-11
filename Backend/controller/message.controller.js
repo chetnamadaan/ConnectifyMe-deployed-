@@ -5,7 +5,7 @@ export const sendMessage = async (req, res) => {
   try {
     const { message } = req.body;
     const { id: receiverId } = req.params;
-    const senderId = req.user._id; // current logged in user
+    const senderId = req.user._id; 
     let conversation = await Conversation.findOne({
       members: { $all: [senderId, receiverId] },
     });
@@ -22,9 +22,8 @@ export const sendMessage = async (req, res) => {
     if (newMessage) {
       conversation.messages.push(newMessage._id);
     }
-    // await conversation.save()
-    // await newMessage.save();
-    await Promise.all([conversation.save(), newMessage.save()]); // run parallel
+   
+    await Promise.all([conversation.save(), newMessage.save()]); 
     const receiverSocketId = getReceiverSocketId(receiverId);
     if (receiverSocketId) {
       io.to(receiverSocketId).emit("newMessage", newMessage);
@@ -39,7 +38,7 @@ export const sendMessage = async (req, res) => {
 export const getMessage = async (req, res) => {
   try {
     const { id: chatUser } = req.params;
-    const senderId = req.user._id; // current logged in user
+    const senderId = req.user._id; 
     let conversation = await Conversation.findOne({
       members: { $all: [senderId, chatUser] },
     }).populate("messages");
